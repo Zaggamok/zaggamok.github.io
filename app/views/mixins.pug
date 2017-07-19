@@ -1,0 +1,7 @@
+mixin masonJar(title, imgSrc)
+	div.masonry-css-item
+		a(href='click me!', data-featherlight='<div class="row"><div class="medium-6 small-12 columns"><p>Hello world</p></div><div class="medium-6 small-12 columns" style="text-align:center;"><img src=' + imgSrc + '></div></div>')
+			if imgSrc
+				img(src=imgSrc)
+			if title
+				h2.mason-h2= title

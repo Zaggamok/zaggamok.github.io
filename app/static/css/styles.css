@@ -1,0 +1,104 @@
+/* --== BASE ==-- */
+/* Type */
+html, body, h1, h2, h3, h4, h5, p, div, span, a {
+  font-family: "Source Sans Pro", Helvetica, sans-serif; }
+
+body {
+  background-color: #000;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed; }
+
+/* --== HEADER ==-- */
+#header {
+  text-align: center;
+  padding: 2em;
+  color: rgba(255, 255, 255, 0.65); }
+
+#header h1 {
+  font-size: 1.5em; }
+
+#header p {
+  color: rgba(255, 255, 255, 0.65); }
+
+#header a {
+  text-decoration: none;
+  margin: 0 10px;
+  color: rgba(255, 255, 255, 0.65);
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out; }
+
+#header a:hover {
+  color: #ffffff; }
+
+#header .avatar {
+  border-radius: 100%;
+  display: inline-block;
+  margin: 0 0 2em 0;
+  padding: 0.5em;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.075); }
+
+#header .avatar img {
+  border-radius: 100%;
+  display: block;
+  width: 10em; }
+
+/* --== MASONRY ==-- */
+.masonry-css {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  padding: 2em; }
+
+@media only screen and (max-width: 640px) {
+  .masonry-css {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2; } }
+
+@media only screen and (min-width: 1024px) {
+  .masonry-css {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4; } }
+
+.masonry-css-item {
+  break-inside: avoid;
+  padding: 5px 0; }
+
+.masonry-css-item a {
+  transition: all 0.2s ease;
+  border-bottom: none;
+  display: block;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.075);
+  overflow: hidden; }
+
+.masonry-css-item a:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25), 0 0 0.5em 0 #ff6382; }
+
+.masonry-css-item a img {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.25);
+  width: 100%;
+  border-radius: 4px; }
+
+.mason-h2 {
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center; }
+
+/* --== LIGHTBOX ==-- */
+/* --== Featherlight override ==-- */
+.featherlight .featherlight-content {
+  background-color: rgba(255, 255, 255, 0.1); }
+
+.featherlight p {
+  color: rgba(255, 255, 255, 0.65); }

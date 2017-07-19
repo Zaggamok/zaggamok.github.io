@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+	head
+		block head
+			title= 'Farren R Esman'
+			meta(charset='utf-8')
+			meta(name='viewport', content='width=device-width, initial-scale=1')
+			
+			include links
+			
+			include mixins
+			
+	body
+		div.row
+			div.small-12.columns
+				block content
+				block footer
+				
+		include scripts
