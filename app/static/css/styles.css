@@ -1,4 +1,10 @@
 /* --== BASE ==-- */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
 /* Type */
 html, body, h1, h2, h3, h4, h5, p, div, span, a {
   font-family: "Source Sans Pro", Helvetica, sans-serif; }
@@ -44,7 +50,67 @@ body {
 #header .avatar img {
   border-radius: 100%;
   display: block;
-  width: 10em; }
+  width: 9em; }
+
+/* --== TRANSITION ==-- */
+.animate {
+  width: 100%; }
+
+.container {
+  position: relative;
+  width: 100%;
+  overflow: auto; }
+
+.container::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.box {
+  width: 600px;
+  height: 200px;
+  margin: 10px;
+  text-align: center;
+  position: absolute; }
+
+div#about {
+  position: absolute;
+  z-index: -1;
+  right: 100%;
+  top: 0; }
+
+div#projects {
+  z-index: 0; }
+
+div#contact {
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  top: 0; }
+
+@keyframes slideOutRight {
+  from {
+    left: 0; }
+  to {
+    left: 200%; } }
+
+@keyframes slideOutLeft {
+  from {
+    left: 0; }
+  to {
+    left: 200%; } }
+
+@keyframes slideInRight {
+  from {
+    left: 200%; }
+  to {
+    left: 0; } }
+
+@keyframes slideInLeft {
+  from {
+    left: 200%; }
+  to {
+    left: 0; } }
 
 /* --== MASONRY ==-- */
 .masonry-css {
@@ -94,6 +160,14 @@ body {
   font-size: 2em;
   color: rgba(255, 255, 255, 0.65);
   text-align: center; }
+
+/* --== TEST ==-- */
+#wrapper {
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  top: 90%;
+  left: 5%; }
 
 /* --== LIGHTBOX ==-- */
 /* --== Featherlight override ==-- */
