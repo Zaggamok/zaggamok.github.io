@@ -14,7 +14,8 @@ body {
   background-image: url("../img/bg.jpg");
   background-size: cover;
   background-position: top center;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  overflow-x: hidden; }
 
 /* --== HEADER ==-- */
 #header {
@@ -53,6 +54,9 @@ body {
   width: 9em; }
 
 /* --== TRANSITION ==-- */
+#offstage {
+  display: none; }
+
 .animate {
   width: 100%; }
 
@@ -74,19 +78,7 @@ body {
   position: absolute; }
 
 div#about {
-  position: absolute;
-  z-index: -1;
-  right: 100%;
-  top: 0; }
-
-div#projects {
-  z-index: 0; }
-
-div#contact {
-  position: absolute;
-  z-index: 1;
-  left: 100%;
-  top: 0; }
+  color: rgba(255, 255, 255, 0.65); }
 
 @keyframes slideOutRight {
   from {
