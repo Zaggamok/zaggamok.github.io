@@ -3,7 +3,7 @@ var app = express();
 app.set('view engine', 'pug');
 app.set('port', (process.env.PORT || 3000));
 var router = express.Router();
-var path = __dirname + '/app/views/';
+var path = __dirname + '/src/views/';
 
 router.use(function (req,res,next) {
   console.log("/" + req.method);
@@ -27,7 +27,7 @@ router.get("/contact",function(req,res){
 
 app.use("/",router);
 
-app.use(express.static('app/static'))
+app.use(express.static('public'));
 
 app.use("*",function(req,res){
   res.sendFile(path + "404.html");

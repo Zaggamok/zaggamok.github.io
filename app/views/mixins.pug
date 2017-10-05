@@ -1,8 +1,0 @@
-mixin masonJar(title, message, content, thumbnail)
-	div.masonry-css-item
-		a(href='click me!', data-featherlight='<div class="row"><div class="medium-6 small-12 columns">' + message + '</div><div style="min-height:12em;display:flex;align-items:center;justify-content:center;" class="medium-6 small-12 columns" style="text-align:center;">' + content + '</div></div>')
-			if thumbnail
-				img(src='../img/thumb/' + thumbnail)
-			if title
-				h2.mason-h2= title
-				
