@@ -36,7 +36,7 @@ body {
 
 #header {
 	text-align: center;
-	padding: $global-padding;
+	padding: 0 $global-padding;
 	color: $font-color-pale;
 }
 	
@@ -64,7 +64,6 @@ body {
 #header .avatar {
 	border-radius: 100%;
 	display: inline-block;
-	margin: 0 0 2em 0;
 	padding: 0.5em;
 	border: solid 1px $border-opacity;
 	background-color: rgba(255, 255, 255, 0.075);
