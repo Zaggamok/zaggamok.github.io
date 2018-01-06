@@ -25,6 +25,10 @@ router.get("/contact",function(req,res){
   res.sendFile(path + "contact.html");
 });
 
+router.get("/paul",function(req,res){
+  res.sendFile(path + "paul.html");
+});
+
 app.use("/",router);
 
 app.use(express.static('public'));
