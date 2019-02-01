@@ -1,2 +1,0 @@
-# zaggamok.github.io
-website
