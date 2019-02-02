@@ -682,6 +682,8 @@ function main() {
   stickyNav(); // fixed header
 
   initBurgerMenu(); // mobile burger nav
+
+  test();
 }
 
 main();
@@ -717,6 +719,21 @@ function stick(el) {
 
 function unstick(el) {
   $(el).removeClass('fixed');
+}
+
+function test() {
+  $(window).scroll(function () {
+    var nav = $('nav');
+    var scrollTop = $(document).scrollTop();
+    var windowHeight = $(window).height();
+
+    if (scrollTop >= windowHeight) {
+      nav.removeClass('has-background-transparent');
+      console.log("scrollTop > windowHeight");
+    } else {
+      nav.addClass('has-background-transparent');
+    }
+  });
 }
 /* Burger menu */
 
