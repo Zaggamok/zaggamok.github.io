@@ -683,11 +683,16 @@ function main() {
 
   initBurgerMenu(); // mobile burger nav
 
-  test();
+  hideNavBackground(); // let html = $( 'div[data-featherlight-content="environment"]' ).html();
+  // applyFeatherlight( $('#form'), html );
+
+  initIconLightboxes();
 }
 
-main();
-/* Sticky nav */
+$(document).ready(function () {
+  main();
+});
+/* Navigation */
 
 function stickyNav() {
   var navbar = $('nav'); //const headerHeight = $( '.hero' ).height();
@@ -709,19 +714,9 @@ function stickyNav() {
     navbar.addClass('is-visible');
     navbar.addClass('triggered');
   }, 1200);
-} // applies .fixed class to element el
-
-
-function stick(el) {
-  $(el).addClass('fixed');
-} // removed .fixed class from element el
-
-
-function unstick(el) {
-  $(el).removeClass('fixed');
 }
 
-function test() {
+function hideNavBackground() {
   $(window).scroll(function () {
     var nav = $('nav');
     var scrollTop = $(document).scrollTop();
@@ -734,8 +729,7 @@ function test() {
       nav.addClass('has-background-transparent');
     }
   });
-}
-/* Burger menu */
+} // Burger menu
 
 
 function initBurgerMenu() {
@@ -746,6 +740,31 @@ function initBurgerMenu() {
     $(burgerMenu.toggleClass('is-active'));
     $(nav).toggleClass('is-active');
   });
+}
+/* Featherlight */
+// Uses element selector to apply given content, so that element clicked triggers content lightbox
+// @param element 				Selector: element to be used for featherlight link
+// @param content 				String: HTML used in lightbox content
+
+
+function applyFeatherlight(element, content) {
+  // $('.myElement').featherlight($content, configuration);
+  console.log("featherlight trigger: ".concat(element, ", ").concat(content));
+  $(element).featherlight(content);
+}
+
+function initIconLightboxes() {
+  var iconIds = ['form', 'environment', 'flexibility', 'award'];
+
+  for (var _i = 0; _i < iconIds.length; _i++) {
+    var id = iconIds[_i];
+    console.log("id = ".concat(id));
+    var html = $("div[data-featherlight-content=\"".concat(id, "\"]")).html();
+    console.log(html);
+    var sel = "#".concat(id);
+    console.log("selector = ".concat(sel));
+    applyFeatherlight($(sel), html);
+  }
 }
 /* Inactive */
 // create Waypoint for chapters

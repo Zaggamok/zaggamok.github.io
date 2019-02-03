@@ -8062,7 +8062,7 @@ section .section-heading p {
 .intro section {
   width: 50%; }
 
-.intro .section-heading {
+.intro section.section-heading {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 6px;
   padding: 1em;
@@ -8087,11 +8087,11 @@ section .section-heading p {
 @media screen and (max-width: 768px) {
   .intro {
     flex-flow: column; }
-  .intro section {
+  .intro section.section-heading {
     width: 100%; } }
 
-@media screen and (max-width: 1023px) {
-  .intro .section-heading {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .intro section.section-heading {
     width: 75%; } }
 
 /* Products */
@@ -8155,10 +8155,8 @@ section .section-heading p {
   display: flex;
   flex-flow: row wrap; }
 
-.icons-group h3 {
-  color: #fff;
-  font-size: 1.25em;
-  font-weight: 700; }
+.icons-group h2 {
+  color: #fff; }
 
 .icons-group p {
   font-size: 1em; }
@@ -8167,12 +8165,51 @@ section .section-heading p {
   margin: 0.5em;
   text-align: center; }
 
+.icons-group .icons-outline {
+  background: #8b489d;
+  border-radius: 50%;
+  display: inline-block; }
+
 .icons-group .icon {
   background-color: #A25EB5;
   border-radius: 50%;
-  font-size: 48px;
-  margin: 0.25em;
+  cursor: pointer;
+  font-size: 72px;
+  margin: 0.1em;
   padding: 1em; }
+
+.icons-lightbox {
+  display: none; }
+
+.icons-longform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 1em; }
+
+/* Featherlight */
+.featherlight .featherlight-content {
+  max-width: 50vw;
+  max-height: 50vw;
+  min-width: 600px; }
+
+.featherlight .featherlight-content h3.featherlight-inner {
+  margin-bottom: 0.5rem; }
+
+.featherlight .featherlight-content p.featherlight-inner {
+  color: black;
+  margin-bottom: 0.5rem; }
+
+@media screen and (max-width: 1023px) {
+  .featherlight .featherlight-content {
+    max-width: 80vw;
+    max-height: 80vw; } }
+
+@media screen and (max-width: 768px) {
+  .featherlight .featherlight-content {
+    max-width: 95vw;
+    max-height: 95vw; } }
 
 /* Webform */
 .webform {
@@ -8210,6 +8247,13 @@ svg.diagonal-bg.diagonal-bg__top {
   background: linear-gradient(90deg, #001729 0%, #002f55 100%);
   position: absolute;
   z-index: 1; }
+
+/* Footer */
+footer.footer {
+  padding: 1.5rem 0.75rem 3rem; }
+
+footer.footer p {
+  font-size: 85%; }
 
 /* Animations */
 @keyframes nudge-in-up {
