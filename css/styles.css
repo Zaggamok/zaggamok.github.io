@@ -7979,7 +7979,7 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem; }
 
 html, body {
-  background: #fff;
+  background: #EBE8E0;
   height: 100%;
   margin: 0;
   padding: 0; }
@@ -8039,7 +8039,8 @@ section .section-heading p, section .section-content p {
   background-image: url(./../images/8-lennox-heads_lg.jpg);
   background-position: right;
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  box-shadow: inset 0 -8px 8px -5px rgba(0, 0, 0, 0.05); }
 
 .hero.is-fullheight .hero-head {
   width: 100%;
@@ -8066,19 +8067,19 @@ section .section-heading p, section .section-content p {
 .intro .section-heading {
   border-radius: 6px;
   padding: 1em;
-  width: 50%;
+  width: 65%;
   z-index: 2; }
 
 .feature-item__container {
   margin: -3rem 0;
   padding: 0;
   position: absolute;
-  top: 50%;
-  transform: translateY(25%);
+  top: 0;
+  transform: translateY(15%);
   width: 100%; }
 
 .feature-item__container:after {
-  background: -webkit-linear-gradient(left, white 0%, rgba(255, 255, 255, 0.5) 56%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(left, #ebe8e0 0%, rgba(235, 232, 224, 0.7) 56%, rgba(235, 232, 224, 0) 100%);
   content: "";
   display: block;
   position: absolute;
@@ -8103,7 +8104,10 @@ section .section-heading p, section .section-content p {
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .intro section.section-heading {
-    width: 75%; } }
+    width: 75%; }
+  .feature-item__container {
+    top: 50%;
+    transform: translateY(25%); } }
 
 /* Products */
 .box-container {
@@ -8211,10 +8215,7 @@ section .section-heading p, section .section-content p {
   max-height: 50vw;
   min-width: 600px; }
 
-.featherlight .featherlight-content h3.featherlight-inner {
-  margin-bottom: 0.5rem; }
-
-.featherlight .featherlight-content p.featherlight-inner {
+.featherlight .featherlight-content .featherlight-inner h1, .featherlight .featherlight-content .featherlight-inner h2, .featherlight .featherlight-content .featherlight-inner h3, .featherlight .featherlight-content .featherlight-inner p {
   color: black;
   margin-bottom: 0.5rem; }
 

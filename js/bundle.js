@@ -687,6 +687,7 @@ function main() {
   // applyFeatherlight( $('#form'), html );
 
   initIconLightboxes();
+  initTCsLightbox();
 }
 
 $(document).ready(function () {
@@ -765,6 +766,11 @@ function initIconLightboxes() {
     console.log("selector = ".concat(sel));
     applyFeatherlight($(sel), html);
   }
+}
+
+function initTCsLightbox() {
+  var tcs = "<div class=\"lightbox-content\">\n\t\t<h1 class=\"has-text-centered\">Terms &amp; Conditions</h1>\n\t\t<h2>Summary</h2>\n\t\t<p>We would like to send you a short series of emails that comprises our eBrochure. It\u2019s a curated content piece designed to pique your interest in our brand. Enjoy what Pavilions has to offer you.</p>\n\t\t<p>We will not distribute your information in any way, nor issue spam to your inbox. If you have any questions, comments, or concerns, please contact us directly at contact@pavilions.net.au</p>\n\t\t<h2>Frequency</h2>\n\t\t<p>the frequency of the newletter issues will be at most weekly, with a limited duration.</p>\n\t\t<h2>Limited Liability</h2>\n\t\t<p>We reserve the sole right to unsubscribe users / visitors from or newsletter service, without notice . We will do so with any subscriber we deem registered with fake data.</p>\n\t\t<h1 class=\"has-text-centered\">Privacy Policy</h1>\n\t\t<p>We will not communicate / spread / publish or otherwise give away your address. You'll be able to change your subscription settings or to delete it alltogether anytime.</p>\n\t</div>";
+  applyFeatherlight($('#tcs'), tcs);
 }
 /* Inactive */
 // create Waypoint for chapters
