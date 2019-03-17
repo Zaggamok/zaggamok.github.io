@@ -6,15 +6,13 @@
 //require('waypoints/lib/shortcuts/sticky.min.js');
 function main() {
   initBurgerMenu(); // mobile burger nav
+  // init homepage nav
 
   if ($('#home').length === 1) {
-    // sticky nav on home
-    hideNavBackground();
-    stickyNav();
+    initHomepageNav();
   } else {
     console.log('not home');
-  } // let html = $( 'div[data-featherlight-content="environment"]' ).html();
-  // applyFeatherlight( $('#form'), html );
+  } // init lightboxes
 
 
   initIconLightboxes();
@@ -25,41 +23,30 @@ $(document).ready(function () {
   main();
 });
 /* Navigation */
+// special nav used for homepage which is transparent above the fold
+// if above fold, nav.has-background-transparent
+// if below fold, nav.below-fold
 
-function stickyNav() {
-  var navbar = $('nav'); //const headerHeight = $( '.hero' ).height();
-
-  var heightOffset = $(window).height() * 0.10;
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > heightOffset && $('nav').hasClass('triggered') === false) {
-      navbar.addClass('is-visible');
-      navbar.addClass('triggered');
-      console.log('showing');
-    } else if ($('nav').hasClass('triggered') === false) {
-      navbar.removeClass('is-visible');
-      console.log('hiding');
-    }
-  }); // also set timer for appearance given no interaction
-
-  setTimeout(function () {
-    navbar.addClass('is-visible');
-    navbar.addClass('triggered');
-  }, 1200);
+function initHomepageNav() {
+  hideNavBackground();
+  $(window).scroll(hideNavBackground);
 }
 
 function hideNavBackground() {
-  $(window).scroll(function () {
-    var nav = $('nav');
-    var scrollTop = $(document).scrollTop();
-    var windowHeight = $(window).height();
+  console.log('hideNavBackground()');
+  var nav = $('nav');
+  var scrollTop = $(document).scrollTop();
+  var windowHeight = $(window).height();
 
-    if (scrollTop >= windowHeight) {
-      nav.removeClass('has-background-transparent');
-      console.log("scrollTop > windowHeight");
-    } else {
-      nav.addClass('has-background-transparent');
-    }
-  });
+  if (scrollTop >= windowHeight) {
+    console.log("scrollTop >= windowHeight");
+    nav.removeClass('has-background-transparent');
+    nav.addClass('below-fold');
+  } else {
+    console.log("scrollTop !>= windowHeight");
+    nav.addClass('has-background-transparent');
+    nav.removeClass('below-fold');
+  }
 } // Burger menu
 
 
@@ -102,31 +89,5 @@ function initTCsLightbox() {
   var tcs = "<div class=\"lightbox-content\">\n\t\t<h1 class=\"has-text-centered\">Terms &amp; Conditions</h1>\n\t\t<h2>Summary</h2>\n\t\t<p>We would like to send you a short series of emails that comprises our eBrochure. It\u2019s a curated content piece designed to pique your interest in our brand. Enjoy what Pavilions has to offer you.</p>\n\t\t<p>We will not distribute your information in any way, nor issue spam to your inbox. If you have any questions, comments, or concerns, please contact us directly at contact@pavilions.net.au</p>\n\t\t<h2>Frequency</h2>\n\t\t<p>the frequency of the newletter issues will be at most weekly, with a limited duration.</p>\n\t\t<h2>Limited Liability</h2>\n\t\t<p>We reserve the sole right to unsubscribe users / visitors from or newsletter service, without notice . We will do so with any subscriber we deem registered with fake data.</p>\n\t\t<h1 class=\"has-text-centered\">Privacy Policy</h1>\n\t\t<p>We will not communicate / spread / publish or otherwise give away your address. You'll be able to change your subscription settings or to delete it alltogether anytime.</p>\n\t</div>";
   applyFeatherlight($('#tcs'), tcs);
 }
-/* Inactive */
-// create Waypoint for chapters
-// @param el 					jQuery selector for Waypoint element
-// function createStickyChapter( el ) {
-// 	const sticky = new Waypoint.Sticky({
-// 		element: el,
-// 		handler: function() {
-// 			console.log('chapter waypoint triggered');
-// 			//$( el ).toggleClass( 'fixed' );
-// 		}
-// 	});
-// 	console.log('chapter waypoint created');
-// }
-
-/*
-// sticky waypoints for chapter images
-const sticky = new Waypoint.Sticky({
-	element: $( '.story' )[0]
-})
-*/
-// function fixImage() {
-// 	const storyText = $( '#chapter-1 .story-text' );
-// 	const windowHeight = $( window ).height();
-// 	const storyTextHeight = $( storyText ).height();
-// 	console.log(`window height: ${ windowHeight }, story text height: ${ storyTextHeight }`);
-// }
 
 },{}]},{},[1]);
