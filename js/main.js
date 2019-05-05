@@ -4,8 +4,8 @@
 //require('waypoints/lib/jquery.waypoints.js'); // see: https://github.com/imakewebthings/waypoints/issues/458
 //require('waypoints/lib/shortcuts/sticky.min.js');
 function main() {
-  initBurgerMenu(); // mobile burger nav
-  // init homepage nav
+  initBurgerMenu();
+  setScrollAnimationTargets(); // init homepage nav
 
   if ($('#home').length === 1) {
     initHomepageNav();
@@ -37,7 +37,7 @@ function hideNavBackground() {
   var scrollTop = $(document).scrollTop();
   var windowHeight = $(window).height();
 
-  if (scrollTop >= ( windowHeight - 75 ) ) {
+  if (scrollTop >= windowHeight) {
     console.log("scrollTop >= windowHeight");
     nav.removeClass('has-background-transparent');
     nav.addClass('below-fold');
@@ -87,4 +87,31 @@ function initIconLightboxes() {
 function initTCsLightbox() {
   var tcs = "<div class=\"lightbox-content\">\n\t\t<h1 class=\"has-text-centered\">Terms &amp; Conditions</h1>\n\t\t<h2>Summary</h2>\n\t\t<p>We would like to send you a short series of emails that comprises our eBrochure. It\u2019s a curated content piece designed to pique your interest in our brand. Enjoy what Pavilions has to offer you.</p>\n\t\t<p>We will not distribute your information in any way, nor issue spam to your inbox. If you have any questions, comments, or concerns, please contact us directly at contact@pavilions.net.au</p>\n\t\t<h2>Frequency</h2>\n\t\t<p>the frequency of the newletter issues will be at most weekly, with a limited duration.</p>\n\t\t<h2>Limited Liability</h2>\n\t\t<p>We reserve the sole right to unsubscribe users / visitors from or newsletter service, without notice . We will do so with any subscriber we deem registered with fake data.</p>\n\t\t<h1 class=\"has-text-centered\">Privacy Policy</h1>\n\t\t<p>We will not communicate / spread / publish or otherwise give away your address. You'll be able to change your subscription settings or to delete it alltogether anytime.</p>\n\t</div>";
   applyFeatherlight($('#tcs'), tcs);
+}
+/*
+ * Smooth scroll for all #id links on page
+ * source: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
+ */
+
+
+function setScrollAnimationTargets() {
+  // Add smooth scrolling to all links
+  $("a").on('click', function (event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault(); // Store hash
+
+      var hash = this.hash; // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function () {
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+
+  });
 }

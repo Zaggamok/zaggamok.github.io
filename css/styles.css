@@ -8226,6 +8226,16 @@ section.hero + section {
     height: 20vh;
     margin: 0.25em; } }
 
+/* Feature section */
+.feature-list .item {
+  margin: 0.5em;
+  text-align: center; }
+
+.feature-list .feature-image {
+  border: 2px solid #A25EB5;
+  border-radius: 50%;
+  max-width: 250px; }
+
 /* Icon section */
 .icons-group {
   display: flex;
@@ -8363,6 +8373,11 @@ footer.footer p, footer.footer li {
 footer.footer input {
   max-width: 200px; }
 
+.sitemap {
+  text-align: left;
+  margin: auto;
+  max-width: 200px; }
+
 .sitemap a {
   color: #ccc;
   text-decoration: underline; }
@@ -8372,6 +8387,12 @@ footer.footer input {
 
 .legal {
   color: #ccc; }
+
+.quick-subscribe {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center; }
 
 /* Showcase */
 #page section.section:first-of-type {
@@ -8389,6 +8410,9 @@ footer.footer input {
     text-align: center; } }
 
 /* Libraries */
+.glide__slide {
+  position: relative; }
+
 .glide__slide img {
   border-radius: 4px;
   display: block;
@@ -8396,6 +8420,20 @@ footer.footer input {
 
 .glidefix.tile {
   max-width: 80vw; }
+
+.glide__caption {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 1em;
+  margin: 1em;
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.glide__caption a {
+  color: white;
+  display: block; }
 
 @media screen and (max-width: 1023px) {
   .glidefix.tile {
