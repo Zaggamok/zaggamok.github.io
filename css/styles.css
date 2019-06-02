@@ -8052,8 +8052,12 @@ section.hero + section {
   margin-top: -0.5em; }
 
 @media screen and (max-width: 768px) {
+  section.section {
+    padding: 6rem 1rem; }
   section.webform .section-heading {
-    text-align: center; } }
+    text-align: center; }
+  section .section-inner {
+    max-width: unset; } }
 
 /* Menu */
 #home nav .navbar-brand img {
@@ -8227,14 +8231,27 @@ section.hero + section {
     margin: 0.25em; } }
 
 /* Feature section */
+.feature-list {
+  display: flex;
+  flex-flow: row wrap; }
+
 .feature-list .item {
-  margin: 0.5em;
-  text-align: center; }
+  padding: 1em 0.5em;
+  text-align: center;
+  width: 33%; }
 
 .feature-list .feature-image {
   border: 2px solid #A25EB5;
   border-radius: 50%;
   max-width: 250px; }
+
+@media screen and (max-width: 1023px) {
+  .feature-list .item {
+    width: 50%; } }
+
+@media screen and (max-width: 768px) {
+  .feature-list .item {
+    width: 100%; } }
 
 /* Icon section */
 .icons-group {
@@ -8445,7 +8462,14 @@ footer.footer input {
   .glide__arrow.glide__arrow--right {
     right: 0.5em; }
   .glide__arrow img {
-    width: 20px; } }
+    width: 20px; }
+  .glide__caption {
+    margin: unset;
+    padding: 0 0.5em;
+    width: 100%; }
+  .glide__caption a {
+    display: inline;
+    float: right; } }
 
 .featherlight .featherlight-content {
   max-width: 50vw;
