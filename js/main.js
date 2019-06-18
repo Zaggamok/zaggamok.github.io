@@ -14,7 +14,7 @@ function main() {
   } // init lightboxes
 
 
-  initIconLightboxes();
+  initVideoLightbox();
   initTCsLightbox();
 }
 
@@ -22,9 +22,12 @@ $(document).ready(function () {
   main();
 });
 /* Navigation */
-// special nav used for homepage which is transparent above the fold
-// if above fold, nav.has-background-transparent
-// if below fold, nav.below-fold
+
+/**
+ * special nav used for homepage which is transparent above the fold
+ * if above fold, nav.has-background-transparent
+ * if below fold, nav.below-fold
+ */
 
 function initHomepageNav() {
   hideNavBackground();
@@ -59,36 +62,38 @@ function initBurgerMenu() {
   });
 }
 /* Featherlight */
-// Uses element selector to apply given content, so that element clicked triggers content lightbox
-// @param element 				Selector: element to be used for featherlight link
-// @param content 				String: HTML used in lightbox content
+
+/**
+ * Uses element selector to apply given content, so that element clicked triggers content lightbox
+ * @param element 				Selector: element to be used for featherlight link
+ * @param content 				String: HTML used in lightbox content
+ */
 
 
 function applyFeatherlight(element, content) {
   // $('.myElement').featherlight($content, configuration);
   //console.log( `featherlight trigger: ${ element }, ${ content }` );
   $(element).featherlight(content);
-}
+} // DEPRECATED - no longer using icons with lightboxes
+// function initIconLightboxes() {
+// 	const iconIds = ['form', 'environment', 'flexibility', 'award']
+// 	for ( let id of iconIds ) {
+// 		const html = $( `div[data-featherlight-content="${ id }"]` ).html();
+// 		const sel = `#${ id }`;
+// 		applyFeatherlight( $( sel ), html );
+// 	}
+// }
 
-function initIconLightboxes() {
-  var iconIds = ['form', 'environment', 'flexibility', 'award'];
+/**
+ * init Terms and Conditions lightbox
+ */
 
-  for (var _i = 0; _i < iconIds.length; _i++) {
-    var id = iconIds[_i];
-    //console.log(`id = ${ id }`)
-    var html = $("div[data-featherlight-content=\"".concat(id, "\"]")).html(); //console.log( html );
-
-    var sel = "#".concat(id); //console.log(`selector = ${ sel }`)
-
-    applyFeatherlight($(sel), html);
-  }
-}
 
 function initTCsLightbox() {
   var tcs = "<div class=\"lightbox-content\">\n\t\t<h1 class=\"has-text-centered\">Terms &amp; Conditions</h1>\n\t\t<h2>Summary</h2>\n\t\t<p>We would like to send you a short series of emails that comprises our eBrochure. It\u2019s a curated content piece designed to pique your interest in our brand. Enjoy what Pavilions has to offer you.</p>\n\t\t<p>We will not distribute your information in any way, nor issue spam to your inbox. If you have any questions, comments, or concerns, please contact us directly at contact@pavilions.net.au</p>\n\t\t<h2>Frequency</h2>\n\t\t<p>the frequency of the newletter issues will be at most weekly, with a limited duration.</p>\n\t\t<h2>Limited Liability</h2>\n\t\t<p>We reserve the sole right to unsubscribe users / visitors from or newsletter service, without notice . We will do so with any subscriber we deem registered with fake data.</p>\n\t\t<h1 class=\"has-text-centered\">Privacy Policy</h1>\n\t\t<p>We will not communicate / spread / publish or otherwise give away your address. You'll be able to change your subscription settings or to delete it alltogether anytime.</p>\n\t</div>";
   applyFeatherlight($('#tcs'), tcs);
 }
-/*
+/**
  * Smooth scroll for all #id links on page
  * source: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
  */
@@ -114,4 +119,27 @@ function setScrollAnimationTargets() {
     } // End if
 
   });
+}
+/**
+ * init video lightbox within glide gallery. Slide must contain selector '.video-launcher'
+ */
+
+
+function initVideoLightbox() {
+  var videoSlides = $('.video-launcher');
+
+  if (videoSlides.length > 0) {
+    for (var i = 0; i < videoSlides.length; i++) {
+      var slide = $(videoSlides[i]);
+      var videoUrl = slide.attr('data-video');
+      var videoHtml = "<div class=\"lightbox-content\">\n\t\t\t\t<video id=\"video-slide-".concat(i, "\" autoplay controls>\n\t\t\t\t\t<source type=\"video/mp4\" src=\"").concat(videoUrl, "\">\n\t\t\t\t\tYour browser does not appear to support HTML5 videos :(\n\t\t\t\t</video>\n\t\t\t</div>");
+      applyFeatherlight(slide, videoHtml);
+      $("video-slide-".concat(i)).click(function () {
+        video.load();
+        video.play();
+      });
+    }
+  } else {
+    console.log('no video slides detected');
+  }
 }
